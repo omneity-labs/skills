@@ -1,0 +1,119 @@
+{
+  "source_url": "https://api.sawalni.com/openapi.json",
+  "references": {
+    "chat.md": {
+      "operations": [
+        "post_v1_chat_completions",
+        "get_v1_models"
+      ],
+      "websockets": []
+    },
+    "translation.md": {
+      "operations": [
+        "post_v1_chat_completions"
+      ],
+      "websockets": []
+    },
+    "embeddings.md": {
+      "operations": [
+        "post_v1_embeddings",
+        "get_v1_models"
+      ],
+      "websockets": []
+    },
+    "language-id.md": {
+      "operations": [
+        "post_v1_language_identify"
+      ],
+      "websockets": []
+    },
+    "language-encoding.md": {
+      "operations": [
+        "post_v1_language_encode"
+      ],
+      "websockets": []
+    },
+    "rescript.md": {
+      "operations": [
+        "post_v1_language_transliterate",
+        "post_v1_language_rescript"
+      ],
+      "websockets": []
+    },
+    "rhyme-lyrics.md": {
+      "operations": [
+        "post_v1_language_rhyme_score",
+        "post_v1_language_rhyme_search",
+        "post_v1_language_lyrics_suggest-replacements",
+        "post_v1_language_lyrics_score"
+      ],
+      "websockets": []
+    },
+    "grammar.md": {
+      "operations": [
+        "post_v1_tarakib_analyze",
+        "get_v1_tarakib_models",
+        "get_v1_tarakib_languages"
+      ],
+      "websockets": []
+    },
+    "knowledge-search.md": {
+      "operations": [
+        "post_v1_maktaba_search",
+        "post_v1_maktaba_social_search",
+        "post_v1_maktaba_research",
+        "post_v1_akhbar_search",
+        "get_v1_maktaba_status",
+        "get_v1_maktaba_pages_page_id",
+        "get_v1_akhbar_articles_article_id",
+        "get_v1_akhbar_status",
+        "get_v1_akhbar_edition",
+        "get_v1_akhbar_headlines",
+        "post_api_public_knowledge_id_search"
+      ],
+      "websockets": []
+    },
+    "maps.md": {
+      "operations": [
+        "get_v1_atlas_search",
+        "get_v1_atlas_osm_search",
+        "get_v1_atlas_route",
+        "get_v1_atlas_stats",
+        "get_v1_atlas_models",
+        "get_v1_atlas_health"
+      ],
+      "websockets": []
+    },
+    "text-alignment.md": {
+      "operations": [
+        "post_v1_speech_align",
+        "get_v1_speech_align_job_job_id",
+        "get_v1_speech_align_job_job_id_srt",
+        "post_v1_speech_word-align"
+      ],
+      "websockets": []
+    },
+    "transcription.md": {
+      "operations": [
+        "post_v1_speech_transcribe",
+        "get_v1_models"
+      ],
+      "websockets": [
+        "/v1/speech/transcribe/stream"
+      ]
+    },
+    "speech-synthesis.md": {
+      "operations": [
+        "post_v1_audio_speech",
+        "post_v1_speech_synthesize"
+      ],
+      "websockets": []
+    },
+    "pricing.md": {
+      "operations": [
+        "get_v1_billing_balance"
+      ],
+      "websockets": []
+    }
+  }
+}

@@ -1,0 +1,151 @@
+{
+  "name": "omneity-app-build-evals",
+  "version": "0.2.0",
+  "purpose": "Evaluate whether the single Omneity skill routes to enough guidance to build real apps, not only call endpoints.",
+  "queries": [
+    {
+      "id": "app-chat-streaming",
+      "query": "Implement a streaming multilingual chat route and client UI. Keep the API key server-side and show retryable errors.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["chat", "app-patterns"],
+      "success_criteria": [
+        "Uses backend proxy instead of exposing secrets",
+        "Handles streaming and final message reconciliation",
+        "Defines user-facing loading and failure states",
+        "Validates message roles and non-empty input"
+      ]
+    },
+    {
+      "id": "app-rag-hosted",
+      "query": "Build a hosted-vector RAG pipeline for uploaded markdown files using embeddings and chat.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["embeddings", "chat"],
+      "success_criteria": [
+        "Chunks documents with stable IDs",
+        "Caches embeddings by content hash",
+        "Stores source metadata for citations",
+        "Passes compact retrieved context into chat"
+      ]
+    },
+    {
+      "id": "app-rag-self-hosted",
+      "query": "Build a private docs search chatbot where indexing runs on our own server.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["semango", "chat"],
+      "success_criteria": [
+        "Uses Semango for self-hosted indexing/search",
+        "Places Semango behind an auth boundary",
+        "Shows indexing freshness state",
+        "Uses Omneity chat only after retrieval"
+      ]
+    },
+    {
+      "id": "app-language-routing",
+      "query": "Route short user messages by language, detect Arabizi, and choose UI copy accordingly.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["language-id"],
+      "success_criteria": [
+        "Uses language ID only where explicit routing is needed",
+        "Handles low-confidence short text",
+        "Does not infer identity or sensitive attributes",
+        "Stores language metadata only when useful"
+      ]
+    },
+    {
+      "id": "app-cross-script-search",
+      "query": "Build contact search that matches names across Arabic and Latin spellings.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["language-encoding"],
+      "success_criteria": [
+        "Uses language encoding for retrieval keys",
+        "Keeps original text for display",
+        "Normalizes whitespace and punctuation",
+        "Tests realistic misspellings and script variants"
+      ]
+    },
+    {
+      "id": "app-lyrics",
+      "query": "Make a songwriting assistant that suggests replacement words while preserving rhyme.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["rhyme-lyrics"],
+      "success_criteria": [
+        "Uses rhyme/lyrics endpoints",
+        "Keeps suggestions editable",
+        "Preserves user text unless accepted",
+        "Caches common rhyme searches"
+      ]
+    },
+    {
+      "id": "app-audio-subtitles",
+      "query": "Upload video audio, transcribe it, align subtitles, and let users download SRT.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["transcription", "text-alignment"],
+      "success_criteria": [
+        "Validates file type, duration, and size",
+        "Uses transcription before alignment when no transcript exists",
+        "Preserves original media",
+        "Returns SRT/VTT or segment artifacts"
+      ]
+    },
+    {
+      "id": "app-trail-runner",
+      "query": "Build a backend that lets allowed users run approved existing trails and see status.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["herd", "app-patterns"],
+      "success_criteria": [
+        "Uses Herd CLI with explicit JSON params",
+        "Uses allowlisted trails and actions",
+        "Stores trail version, action, status, and runtime",
+        "Shows queued, running, complete, and failed states"
+      ]
+    },
+    {
+      "id": "app-trail-authoring",
+      "query": "Create and iterate a new trail for a site workflow that no registry trail covers.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["herd"],
+      "success_criteria": [
+        "Defines job, inputs, outputs, and success criteria",
+        "Uses stable selectors and fixtures",
+        "Captures logs or screenshots for debugging",
+        "Packages or pins a tested version"
+      ]
+    },
+    {
+      "id": "app-browser-devices",
+      "query": "Connect browser devices and stream events into an internal automation dashboard.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["herd"],
+      "success_criteria": [
+        "Registers and lists devices",
+        "Keeps device identifiers server-side when possible",
+        "Streams events through backend infrastructure",
+        "Avoids exposing arbitrary browser RPC"
+      ]
+    },
+    {
+      "id": "app-semango-setup",
+      "query": "Deploy Semango for a project folder and exclude generated files before indexing.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["semango"],
+      "success_criteria": [
+        "Runs setup and indexing steps",
+        "Tunes include/exclude globs",
+        "Uses persistent index storage",
+        "Monitors health, stats, and query latency"
+      ]
+    },
+    {
+      "id": "app-mixed-research",
+      "query": "Automate website research, index collected files locally, and summarize results with citations.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["herd", "semango", "chat"],
+      "success_criteria": [
+        "Uses Herd for collection",
+        "Uses Semango for local indexing",
+        "Uses Omneity chat for synthesis",
+        "Keeps provenance and citations"
+      ]
+    }
+  ]
+}

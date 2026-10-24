@@ -1,0 +1,404 @@
+{
+  "name": "omneity-trigger-coverage",
+  "version": "0.2.0",
+  "purpose": "Evaluate whether realistic user-intent prompts trigger the single Omneity skill and route to the right internal departments.",
+  "skills_under_test": ["omneity"],
+  "queries": [
+    {
+      "id": "router-001",
+      "category": "capability-routing",
+      "query": "Which Omneity capability should I use to build an assistant that can search docs, answer in Arabic, and automate a website?",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["functionality", "chat", "semango", "herd"]
+    },
+    {
+      "id": "router-002",
+      "category": "capability-routing",
+      "query": "Give me a map of the departments available in these skills before I pick an API.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["functionality"]
+    },
+    {
+      "id": "router-003",
+      "category": "capability-routing",
+      "query": "I do not know the product names. I need to choose between hosted AI, browser automation, and local search.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["functionality", "chat", "herd", "semango"]
+    },
+    {
+      "id": "api-chat-001",
+      "category": "chat-generation",
+      "query": "Build a multilingual chat backend that streams assistant responses and keeps my API key server-side.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["chat", "app-patterns"]
+    },
+    {
+      "id": "api-chat-002",
+      "category": "chat-generation",
+      "query": "Create a Darija translation-like assistant with structured JSON output.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["chat"]
+    },
+    {
+      "id": "api-chat-003",
+      "category": "chat-generation",
+      "query": "I need a chat completion API example with retries, timeouts, and user-facing error states.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["chat", "app-patterns"]
+    },
+    {
+      "id": "api-embeddings-001",
+      "category": "embeddings-rag",
+      "query": "Generate embeddings for document chunks and store them in a vector database for RAG.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["embeddings"]
+    },
+    {
+      "id": "api-embeddings-002",
+      "category": "embeddings-rag",
+      "query": "Deduplicate multilingual records with vectors and cluster similar paragraphs.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["embeddings"]
+    },
+    {
+      "id": "api-embeddings-003",
+      "category": "embeddings-rag",
+      "query": "I want hosted embeddings only, not a self-hosted search service.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["embeddings"]
+    },
+    {
+      "id": "api-language-id-001",
+      "category": "language-detection",
+      "query": "Detect whether incoming text is Moroccan Arabic, French, English, or Arabizi before routing it.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["language-id"]
+    },
+    {
+      "id": "api-language-id-002",
+      "category": "language-detection",
+      "query": "Classify script and dialect for a multilingual dataset and store confidence scores.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["language-id"]
+    },
+    {
+      "id": "api-language-id-003",
+      "category": "language-detection",
+      "query": "Route model prompts based on language detection for short user messages.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["language-id", "chat"]
+    },
+    {
+      "id": "api-encoding-001",
+      "category": "language-encoding",
+      "query": "Match names across Arabic script and Latin Arabizi with fuzzy phonetic encoding.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["language-encoding"]
+    },
+    {
+      "id": "api-encoding-002",
+      "category": "language-encoding",
+      "query": "Build typo-resistant cross-script search for words and short phrases.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["language-encoding"]
+    },
+    {
+      "id": "api-encoding-003",
+      "category": "language-encoding",
+      "query": "Encode words for retrieval; this is not transcript alignment.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["language-encoding"]
+    },
+    {
+      "id": "api-rhyme-001",
+      "category": "rhyme-lyrics",
+      "query": "Find rhyme candidates for a Moroccan Arabic lyric and score how close they are.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["rhyme-lyrics"]
+    },
+    {
+      "id": "api-rhyme-002",
+      "category": "rhyme-lyrics",
+      "query": "Suggest replacement words in a song while preserving rhyme and meaning.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["rhyme-lyrics"]
+    },
+    {
+      "id": "api-rhyme-003",
+      "category": "rhyme-lyrics",
+      "query": "Build a songwriting tool that analyzes lyric structure and rhyme quality.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["rhyme-lyrics"]
+    },
+    {
+      "id": "api-transcription-001",
+      "category": "speech-audio",
+      "query": "Transcribe uploaded voice notes and return segments plus detected language.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["transcription", "language-id"]
+    },
+    {
+      "id": "api-transcription-002",
+      "category": "speech-audio",
+      "query": "Make a backend route that accepts audio files and calls speech-to-text safely.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["transcription", "app-patterns"]
+    },
+    {
+      "id": "api-transcription-003",
+      "category": "speech-audio",
+      "query": "Summarize video audio after producing a transcript from the uploaded file.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["transcription", "chat"]
+    },
+    {
+      "id": "api-alignment-001",
+      "category": "text-alignment",
+      "query": "Align a transcript to audio and produce an SRT file.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["text-alignment"]
+    },
+    {
+      "id": "api-alignment-002",
+      "category": "text-alignment",
+      "query": "Make subtitles line up with a video and export a VTT artifact.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["text-alignment"]
+    },
+    {
+      "id": "api-alignment-003",
+      "category": "text-alignment",
+      "query": "Repair timing in a Premiere timeline using an audio file and transcript.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["text-alignment"]
+    },
+    {
+      "id": "semango-001",
+      "category": "self-hosted-search",
+      "query": "Self-host hybrid search over PDFs, markdown docs, code files, and tables.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["semango"]
+    },
+    {
+      "id": "semango-002",
+      "category": "self-hosted-search",
+      "query": "Install a local search server, index a repository, and query it from a backend.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["semango"]
+    },
+    {
+      "id": "semango-003",
+      "category": "self-hosted-search",
+      "query": "Build private knowledge-base search where files stay on our infrastructure.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["semango"]
+    },
+    {
+      "id": "semango-004",
+      "category": "self-hosted-search",
+      "query": "Tune include and exclude globs before indexing a docs folder.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["semango"]
+    },
+    {
+      "id": "herd-usage-001",
+      "category": "trail-usage",
+      "query": "Find an existing trail and call it from the CLI with JSON params.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["herd"]
+    },
+    {
+      "id": "herd-usage-002",
+      "category": "trail-usage",
+      "query": "Run a browser automation workflow from a backend job and parse silent JSON output.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["herd", "app-patterns"]
+    },
+    {
+      "id": "herd-usage-003",
+      "category": "trail-usage",
+      "query": "Search the registry for a trail that exports data from a website.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["herd"]
+    },
+    {
+      "id": "herd-creation-001",
+      "category": "trail-creation",
+      "query": "No existing trail works, so create one, test selectors, and publish it.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["herd"]
+    },
+    {
+      "id": "herd-creation-002",
+      "category": "trail-creation",
+      "query": "Repair a broken browser automation because the website changed its DOM.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["herd"]
+    },
+    {
+      "id": "herd-creation-003",
+      "category": "trail-creation",
+      "query": "Design a trail structure with URL templates, actions, fixtures, and typed params.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["herd"]
+    },
+    {
+      "id": "herd-devices-001",
+      "category": "browser-devices",
+      "query": "Register a browser device and consume its event stream.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["herd"]
+    },
+    {
+      "id": "herd-devices-002",
+      "category": "browser-devices",
+      "query": "List connected devices and send browser RPC from a controlled backend.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["herd"]
+    },
+    {
+      "id": "combo-rag-001",
+      "category": "combined-workflow",
+      "query": "Build a RAG assistant over private files with self-hosted search and Omneity chat answers.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["semango", "chat"]
+    },
+    {
+      "id": "combo-audio-001",
+      "category": "combined-workflow",
+      "query": "Upload podcast audio, transcribe it, then align subtitles for export.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["transcription", "text-alignment"]
+    },
+    {
+      "id": "combo-automation-001",
+      "category": "combined-workflow",
+      "query": "Automate a research website, index the saved pages locally, and generate summaries.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["herd", "semango", "chat"]
+    },
+    {
+      "id": "combo-language-001",
+      "category": "combined-workflow",
+      "query": "Detect language, encode names for cross-script search, and then answer in the user's language.",
+      "expected_skills": ["omneity"],
+      "expected_departments": ["language-id", "language-encoding", "chat"]
+    },
+    {
+      "id": "negative-001",
+      "category": "negative",
+      "query": "Refactor this React component to make the sidebar responsive.",
+      "expected_skills": [],
+      "expected_departments": []
+    },
+    {
+      "id": "negative-002",
+      "category": "negative",
+      "query": "Explain this SQL query plan and suggest indexes.",
+      "expected_skills": [],
+      "expected_departments": []
+    },
+    {
+      "id": "negative-003",
+      "category": "negative",
+      "query": "Create a PowerPoint deck from these notes.",
+      "expected_skills": [],
+      "expected_departments": []
+    },
+    {
+      "id": "negative-004",
+      "category": "negative",
+      "query": "Write unit tests for a pure date formatting utility.",
+      "expected_skills": [],
+      "expected_departments": []
+    },
+    {
+      "id": "api-current-1",
+      "category": "current-api",
+      "query": "Use Tarjamli for dedicated translation into French.",
+      "expected_skills": [
+        "omneity"
+      ],
+      "expected_departments": [
+        "translation"
+      ]
+    },
+    {
+      "id": "api-current-2",
+      "category": "current-api",
+      "query": "Use Rescript to perform script conversion.",
+      "expected_skills": [
+        "omneity"
+      ],
+      "expected_departments": [
+        "rescript"
+      ]
+    },
+    {
+      "id": "api-current-3",
+      "category": "current-api",
+      "query": "Generate a greeting with ASAT speech synthesis.",
+      "expected_skills": [
+        "omneity"
+      ],
+      "expected_departments": [
+        "speech-synthesis"
+      ]
+    },
+    {
+      "id": "api-current-4",
+      "category": "current-api",
+      "query": "Use Tarakib for morphology and dependency parsing.",
+      "expected_skills": [
+        "omneity"
+      ],
+      "expected_departments": [
+        "grammar"
+      ]
+    },
+    {
+      "id": "api-current-5",
+      "category": "current-api",
+      "query": "Search public sources with Maktaba and Akhbar.",
+      "expected_skills": [
+        "omneity"
+      ],
+      "expected_departments": [
+        "knowledge-search"
+      ]
+    },
+    {
+      "id": "api-current-6",
+      "category": "current-api",
+      "query": "Search a private collection through Khizana.",
+      "expected_skills": [
+        "omneity"
+      ],
+      "expected_departments": [
+        "knowledge-search"
+      ]
+    },
+    {
+      "id": "api-current-7",
+      "category": "current-api",
+      "query": "Plan driving routes with the Atlas service.",
+      "expected_skills": [
+        "omneity"
+      ],
+      "expected_departments": [
+        "maps"
+      ]
+    },
+    {
+      "id": "api-current-8",
+      "category": "current-api",
+      "query": "Explain the Omneity pricing and billing units.",
+      "expected_skills": [
+        "omneity"
+      ],
+      "expected_departments": [
+        "pricing"
+      ]
+    }
+  ]
+}

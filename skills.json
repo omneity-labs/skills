@@ -1,0 +1,13 @@
+{
+  "name": "omneity-skills",
+  "description": "Open-source Codex skill for Omneity APIs, Herd automation, and Semango.",
+  "version": "0.4.0",
+  "guide": "FUNCTIONALITY_GUIDE.md",
+  "skills": [
+    {
+      "slug": "omneity",
+      "area": "omneity-public-capabilities",
+      "path": "skills/omneity/SKILL.md"
+    }
+  ]
+}
